@@ -4,17 +4,11 @@ public class Administrator extends Users{
     //Attributes:
 
 
-    Administrator(String email, String password){
-        super(email, password);
+    public Administrator(String email, String nameUser, String password){
+        super(email, nameUser ,password);
     }
 
     //Methods:
-
-
-    @Override
-    public void register() {
-        super.register();
-    }
 
     public void listBuys(){
         System.out.println("Listado de compras");

@@ -1,19 +1,25 @@
 package users;
 
+import database.DatabaseConnection;
 import iu.IUMenuPrincipal;
 
 import java.sql.*;
 
 public class Main {
     public static void main(String[] args){
-        Customer clientOne = new Customer("carlos@gmail.com", "27112254");
-        String clientOneEmail = clientOne.getEmailUser();
-        System.out.println(clientOneEmail);
         iu.IUMenuPrincipal menu = new IUMenuPrincipal();
+        database.DatabaseConnection database = new DatabaseConnection("jdbc:mysql://localhost:3306/terrabank", "root","");
+        Connection connection = database.connect();
 
+     /*   if(connection != null){
+            System.out.println("Conexion exitosa a la base de datos");
+        } else {
+            System.out.println("No se pudo conectar a la base de datos");
+        }
+
+     */
 
         menu.menuPrincipal();
-
 
         //PRUEBA BD
 

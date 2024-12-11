@@ -6,14 +6,12 @@ public class Customer extends Users{
     private double creditAmount;
 
     //Constructor of customer:
-    Customer(String emailUser, String passwordUser){
-        super(emailUser, passwordUser);
+    public Customer(String email, String nameUser, String password){
+        super(email, nameUser ,password);
     }
 
     //Methods:
-    public void register(){
-        super.register();
-    }
+
 
 
     //getters and setters:

@@ -4,14 +4,12 @@ public class Users {
     private int idUser;
     private String nameUser, lastNameUser, emailUser, birthdateUser, passwordUser;
 
-    Users(String emailUser, String passwordUser){
+    public Users(String emailUser, String nameUser ,String passwordUser){
         this.emailUser = emailUser;
         this.passwordUser = passwordUser;
+        this.nameUser = nameUser;
     }
 
-    public void register(){
-        System.out.println("Register user...");
-    }
 
     public void setIdUser(int idUser){
         this.idUser = idUser;
