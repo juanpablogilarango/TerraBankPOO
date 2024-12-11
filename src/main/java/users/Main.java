@@ -1,5 +1,7 @@
 package users;
 
+import iu.IUMenuPrincipal;
+
 import java.sql.*;
 
 public class Main {
@@ -7,11 +9,20 @@ public class Main {
         Customer clientOne = new Customer("carlos@gmail.com", "27112254");
         String clientOneEmail = clientOne.getEmailUser();
         System.out.println(clientOneEmail);
+        iu.IUMenuPrincipal menu = new IUMenuPrincipal();
 
-        Connection connect = null;
-        PreparedStatement statm = null;
 
-        try {
+        menu.menuPrincipal();
+
+
+        //PRUEBA BD
+
+        /* Connection connect = null;
+        PreparedStatement statm = null; */
+
+
+
+     /*   try {
             connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/terrabank", "root","");
             System.out.println("Conexión con la base de datos exitosa");
 
@@ -31,7 +42,7 @@ public class Main {
         } catch (Exception e){
             System.out.println("Algo salió mal " + e.getMessage());
             e.printStackTrace();
-        }
+        }*/
 
     }
 
