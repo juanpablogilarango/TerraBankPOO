@@ -2,7 +2,7 @@ package users;
 
 public class Customer extends Users{
     private int  numberCreditCard, creditCardQuota;
-    private String typeClient;
+    private String typeCard;
     private double creditAmount;
 
     //Constructor of customer:
@@ -15,12 +15,12 @@ public class Customer extends Users{
 
 
     //getters and setters:
-    public void setTypeClient(String typeClient){
-        this.typeClient = typeClient;
+    public void setTypeCard(String typeClient){
+        this.typeCard = typeClient;
     }
 
-    public String getTypeClient(){
-        return this.typeClient;
+    public String getTypeCard(){
+        return this.typeCard;
     }
 
     public void setNumberCreditCard(int numberCreditCard){

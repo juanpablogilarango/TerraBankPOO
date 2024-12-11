@@ -2,7 +2,7 @@ package users;
 
 public class Users {
     private int idUser;
-    private String nameUser, lastNameUser, emailUser, birthdateUser, passwordUser;
+        private String nameUser, lastNameUser, emailUser, birthdateUser, passwordUser;
 
     public Users(String emailUser, String nameUser ,String passwordUser){
         this.emailUser = emailUser;

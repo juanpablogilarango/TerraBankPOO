@@ -54,7 +54,7 @@ public class IUMenuPrincipal {
         System.out.println("Ingrese su contraseña");
         String password = sc.nextLine();
 
-        String sqlAdministrator = ("SELECT * FROM Adminstrator WHERE emailUser = ? AND passwordUser = ?");
+        String sqlAdministrator = ("SELECT * FROM Administrator WHERE emailUser = ? AND passwordUser = ?");
         try {
             PreparedStatement statement = connection.prepareStatement(sqlAdministrator);
             statement.setString(1, email);
