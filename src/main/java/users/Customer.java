@@ -1,10 +1,9 @@
 package users;
 
 public class Customer extends Users{
+    private int  numberCreditCard, creditCardQuota;
     private String typeClient;
-    private int numberCreditCard;
-    private double creditCardQuota;
-    private double buy;
+    private double creditAmount;
 
     //Constructor of customer:
     Customer(String emailUser, String passwordUser){
@@ -34,20 +33,21 @@ public class Customer extends Users{
         return numberCreditCard;
     }
 
-    public void setCreditCardQuota(double creditCardQuota){
+    public void setCreditCardQuota(int creditCardQuota){
         this.creditCardQuota = creditCardQuota;
     }
 
-    public double getCreditCardQuota(){
+    public int getCreditCardQuota(){
         return creditCardQuota;
     }
 
-    public void setBuy(double buy) {
-        this.buy = buy;
+    public void setCreditAmount(double creditAmount) {
+        this.creditAmount = creditAmount;
     }
 
-    public double getBuy(){
-        return buy;
+    public double getCreditAmount(){
+        return creditAmount;
     }
+
 
 }

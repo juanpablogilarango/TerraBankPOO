@@ -3,6 +3,7 @@ package users;
 public class Administrator extends Users{
     //Attributes:
 
+
     Administrator(String email, String password){
         super(email, password);
     }
