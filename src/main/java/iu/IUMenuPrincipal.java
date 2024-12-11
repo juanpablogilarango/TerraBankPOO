@@ -11,9 +11,11 @@ import java.util.Scanner;
 
 public class IUMenuPrincipal {
     static Scanner sc = new Scanner(System.in);
+
     public void menuPrincipal(){
         database.DatabaseConnection database = new DatabaseConnection("jdbc:mysql://localhost:3306/terrabank", "root","");
         Connection connection = database.connect();
+        IUAdministrator menuAdministrator = new IUAdministrator();
         int option;
 
         do {
@@ -26,6 +28,8 @@ public class IUMenuPrincipal {
                     Administrator admin = loginAdministrator(connection);
                     if(admin != null){
                         System.out.println("Bienvenido: " + admin.getNameUser());
+                        //Inicio sesión:
+                        menuAdministrator.menuAdministrator();
                     } else {
                         System.out.println("Contraseña incorrecta");
                     }
@@ -65,7 +69,7 @@ public class IUMenuPrincipal {
             //Se debe de guardar en un objeto el admin...
             if(rs.next()){
                 System.out.println("Datos obtenidos del admin: ");
-                System.out.println("JD" + rs.getInt("idUser"));
+                System.out.println("ID" + rs.getInt("idUser"));
                 System.out.println("Nombre" + rs.getString("nameUser"));
                 Administrator admin = new Administrator(rs.getString("emailUser"), rs.getString("nameUser"), rs.getString("passwordUser"));
                 return admin;
