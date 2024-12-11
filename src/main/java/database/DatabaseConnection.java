@@ -28,18 +28,4 @@ public class DatabaseConnection {
         return  connection;
     }
 
-    public void disconnect() {
-        if(connection != null){
-            try {
-                connection.close();
-                System.out.println("Conexión de la base datos cerrada");
-            } catch (SQLException e){
-                System.out.println("No se pudo cerrar la conexión con la base de datos: " + e.getMessage());
-            }
-        }
-    }
-
-    public Connection getConnection(){
-        return connection;
-    }
 }
