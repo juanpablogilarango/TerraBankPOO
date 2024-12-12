@@ -25,4 +25,12 @@ public class AdquisitionCreditCard {
         this.date = date;
     }
 
+    public void setNumberCreditCard(int numberCreditCard){
+        this.numberCreditCard = numberCreditCard;
+    }
+
+    public int getNumberCreditCard(){
+        return numberCreditCard;
+    }
+
 }
