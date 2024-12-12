@@ -16,11 +16,12 @@ public class IUMenuPrincipal {
         DatabaseConnection database = new DatabaseConnection("jdbc:mysql://localhost:3306/terrabank", "root","");
         Connection connection = database.connect();
         IUAdministrator menuAdministrator = new IUAdministrator();
+        IUCustomer menuCustomer = new IUCustomer();
         int option;
 
         do {
             System.out.println("Señor usuario, ingrese opcion: \n1) Iniciar sesión como administrador " +
-                    "\n2) Iniciar sesión como cliente \n3) Registrarse como cliente \n4) salir" );
+                    "\n2) Ingresar como cliente \n3) salir" );
             option = sc.nextInt();
             switch (option){
                 case 1:
@@ -28,7 +29,6 @@ public class IUMenuPrincipal {
                     Administrator admin = loginAdministrator(connection);
                     if(admin != null){
                         System.out.println("Bienvenido: " + admin.getNameUser());
-                        //Inicio sesión:
                         menuAdministrator.menuAdministrator();
                     } else {
                         System.out.println("Contraseña o correo incorrecto");
@@ -36,12 +36,11 @@ public class IUMenuPrincipal {
 
                     break;
                 case 2:
-                    System.out.println("Iniciar sesión como cliente");
+                    System.out.println("Ingresar como cliente");
+                    menuCustomer.menuCustomer();
                     break;
-                case 3:
-                    System.out.println("Registrarse como cliente");
-                    break;
-                case 4:
+
+                    case 3:
                     option = 4;
                     break;
                 default:

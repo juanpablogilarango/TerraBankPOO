@@ -1,7 +1,7 @@
 package terrabank.users;
 
 public class AdquisitionCreditCard {
-    private int idAdquisition;
+    private int idAdquisition, numberCreditCard;
     private String date;
 
     public AdquisitionCreditCard(int idAdquisition, String date) {

@@ -198,12 +198,16 @@ public class IUAdministrator {
                 String nameUser = rs.getString("nameUser");
                 String lastNameUser = rs.getString("lastNameUser");
                 String emailUser = rs.getString("emailUser");
-                String bithdateUser = rs.getString("birthdateUser");
+                String birthdateUser = rs.getString("birthdateUser");
                 String passwordUser = rs.getString("passwordUser");
-                int numberCreditCard = rs.getInt("numberCreditCard");
-                int creditCardQuota = rs.getInt("creditCardQuota");
-                String typeCliente = rs.getString("typeClient");
-                double creditAmount = rs.getDouble("creditAmount");
+                String typeClient = rs.getString("typeClient");
+                System.out.println("ID: " +  id);
+                System.out.println("nombre: " +  nameUser);
+                System.out.println("segundo nombre: " +  lastNameUser);
+                System.out.println("correo: " +  emailUser);
+                System.out.println("fecha de nacimiento: " + birthdateUser);
+                System.out.println("contraseña: " + passwordUser);
+                System.out.println("tipo de cliente: " + typeClient);
                 System.out.println("--------------------------------------------");
 
             }
