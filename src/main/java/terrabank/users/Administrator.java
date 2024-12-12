@@ -1,4 +1,4 @@
-package users;
+package terrabank.users;
 
 public class Administrator extends Users{
     //Attributes:

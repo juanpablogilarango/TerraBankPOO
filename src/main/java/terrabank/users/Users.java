@@ -1,4 +1,4 @@
-package users;
+package terrabank.users;
 
 public class Users {
     private int idUser;

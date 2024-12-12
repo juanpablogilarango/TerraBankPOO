@@ -1,7 +1,7 @@
-package iu;
+package terrabank.iu;
 
-import database.DatabaseConnection;
-import users.Administrator;
+import terrabank.database.DatabaseConnection;
+import terrabank.users.Administrator;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,7 +13,7 @@ public class IUMenuPrincipal {
     static Scanner sc = new Scanner(System.in);
 
     public void menuPrincipal(){
-        database.DatabaseConnection database = new DatabaseConnection("jdbc:mysql://localhost:3306/terrabank", "root","");
+        DatabaseConnection database = new DatabaseConnection("jdbc:mysql://localhost:3306/terrabank", "root","");
         Connection connection = database.connect();
         IUAdministrator menuAdministrator = new IUAdministrator();
         int option;

@@ -1,4 +1,4 @@
-package users;
+package terrabank.users;
 
 public class Customer extends Users{
     private int  numberCreditCard, creditCardQuota;

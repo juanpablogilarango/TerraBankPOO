@@ -1,4 +1,4 @@
-package users;
+package terrabank.users;
 
 public class AdquisitionCreditCard {
     private int idAdquisition;
