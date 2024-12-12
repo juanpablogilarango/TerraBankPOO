@@ -34,7 +34,7 @@ public class IUAdministrator {
                     listCreditCard(connection);
                     break;
                 case 5:
-                    listCustomer();
+                    listCustomer(connection);
                     break;
                 case 6:
                     option = 5;
@@ -158,6 +158,11 @@ public class IUAdministrator {
         try (Statement statement = connection.createStatement();
              ResultSet rs = statement.executeQuery(sqlList)) {
 
+            if(!rs.isBeforeFirst()){
+                System.out.println("No hay tarjetas registradas");
+                return;
+            }
+
             while (rs.next()) {
                 int id = rs.getInt("idCreditCard");
                 String typeCard = rs.getString("typeCard");
@@ -176,8 +181,38 @@ public class IUAdministrator {
 
     }
 
-    public void listCustomer(){
+    public void listCustomer(Connection connection){
         System.out.println("Lista de clientes");
+        String sqlListCustomer = "SELECT * FROM Customer";
+
+        try(Statement statement = connection.createStatement();
+           ResultSet rs = statement.executeQuery(sqlListCustomer); ) {
+
+            if(!rs.isBeforeFirst()) {
+                System.out.println("No hay clientes registrados");
+                return;
+            }
+
+            while (rs.next()) {
+                int id = rs.getInt("idUser");
+                String nameUser = rs.getString("nameUser");
+                String lastNameUser = rs.getString("lastNameUser");
+                String emailUser = rs.getString("emailUser");
+                String bithdateUser = rs.getString("birthdateUser");
+                String passwordUser = rs.getString("passwordUser");
+                int numberCreditCard = rs.getInt("numberCreditCard");
+                int creditCardQuota = rs.getInt("creditCardQuota");
+                String typeCliente = rs.getString("typeClient");
+                double creditAmount = rs.getDouble("creditAmount");
+                System.out.println("--------------------------------------------");
+
+            }
+
+
+
+        } catch (SQLException e) {
+            System.out.println("Ha ocurrido un error" + e.getMessage());
+        }
     }
 
 }
