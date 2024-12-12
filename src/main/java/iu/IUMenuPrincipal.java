@@ -36,8 +36,10 @@ public class IUMenuPrincipal {
 
                     break;
                 case 2:
-                    System.out.println("Iniciar sesión como cliente");
+                    IUCliente clienteMenu = new IUCliente();
+                    clienteMenu.menuCliente();
                     break;
+
                 case 3:
                     System.out.println("Registrarse como cliente");
                     break;
