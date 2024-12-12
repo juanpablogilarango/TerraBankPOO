@@ -16,9 +16,9 @@ public class IUAdministrator {
         int option;
 
         do {
-            System.out.println("Ingrese una opción: \n 1) Crear tarjeta de crédito \n 2) Actualizar tarjeta de crédito \n" +
-                    "3) Eliminar tarjeta de crédito \n 4) Listar tarjetas de crédito \n " +
-                    " 5) Ver Clientes \n 6) Regresar al menú anterior");
+            System.out.println("Ingrese una opción: \n1) Crear tarjeta de crédito \n2) Actualizar tarjeta de crédito \n" +
+                    "3) Eliminar tarjeta de crédito \n4) Listar tarjetas de crédito \n " +
+                    " 5) Ver Clientes \n6) Regresar al menú anterior");
             option = sc.nextInt();
             switch (option){
                 case 1:
@@ -31,7 +31,7 @@ public class IUAdministrator {
                     deleteCreditCard(connection);
                     break;
                 case 4:
-                    listCreditCard();
+                    listCreditCard(connection);
                     break;
                 case 5:
                     listCustomer();
@@ -82,10 +82,48 @@ public class IUAdministrator {
         System.out.println("Actualizacion de la tarjeta de credito");
         System.out.println("Ingrese el tipo de la tarjeta que desea actualizar");
         sc.nextLine();
+        String typeCardUpdate = sc.nextLine();
 
         System.out.println("Que campo desea actualizar? \n1) Tipo de tarjeta \n2) Descripcion de tarjeta \n3)Monto de tarjeta");
+        int option = sc.nextInt();
+        sc.nextLine();
 
-        String sqlUpdateCard = ("UPDATE CreditCard SET ? = ''");
+        String fieldUpdate = "";
+        String newValue = "";
+        switch (option){
+            case 1:
+                fieldUpdate = "typeCard";
+                System.out.println("Ingrese el nuevo valor de tipo de tarjeta");
+                newValue = sc.nextLine();
+                break;
+            case 2:
+                fieldUpdate = "description";
+                System.out.println("Ingrese el nuevo valor de descripción de tarjeta");
+                newValue = sc.nextLine();
+                break;
+            case 3:
+                fieldUpdate = "amount";
+                System.out.println("Ingrese el nuevo monto de la tarjeta");
+                newValue = sc.nextLine();
+                break;
+            default:
+                System.out.println("Ingrese una opción valida");
+        }
+
+        String sqlUpdateCard = ("UPDATE CreditCard SET " + fieldUpdate + " = ? WHERE typeCard = ?");
+        try {
+            PreparedStatement statement = connection.prepareStatement(sqlUpdateCard);
+            statement.setString(1, newValue);
+            statement.setString(2, typeCardUpdate);
+            int rowsAffected = statement.executeUpdate();
+            if(rowsAffected > 0){
+                System.out.println("Se ha actualizado el registro con éxito");
+            } else {
+                System.out.println("Error al realizar la actualización");
+            }
+        } catch (SQLException e){
+            System.out.println("Ha ocurrido un error " + e.getMessage());
+        }
 
     }
 
@@ -113,8 +151,28 @@ public class IUAdministrator {
         }
     }
 
-    public void listCreditCard(){
+    public void listCreditCard(Connection connection){
         System.out.println("Lista de las tarjetas de credito");
+
+        String sqlList = "SELECT * FROM CreditCard";
+        try (Statement statement = connection.createStatement();
+             ResultSet rs = statement.executeQuery(sqlList)) {
+
+            while (rs.next()) {
+                int id = rs.getInt("idCreditCard");
+                String typeCard = rs.getString("typeCard");
+                String description = rs.getString("description");
+                double amount = rs.getDouble("amount");
+                System.out.println("ID: " + id);
+                System.out.println("Tipo de tarjeta: " + typeCard);
+                System.out.println("Descripción: " + description);
+                System.out.println("Monto: " + amount);
+                System.out.println("------");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Ha ocurrido un error " + e.getMessage());
+        }
 
     }
 

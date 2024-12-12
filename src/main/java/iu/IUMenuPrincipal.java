@@ -19,8 +19,8 @@ public class IUMenuPrincipal {
         int option;
 
         do {
-            System.out.println("Señor usuario, ingrese opcion: \n 1) Iniciar sesión como administrador " +
-                    "\n 2) Iniciar sesión como cliente \n 3) Registrarse como cliente \n 4) salir" );
+            System.out.println("Señor usuario, ingrese opcion: \n1) Iniciar sesión como administrador " +
+                    "\n2) Iniciar sesión como cliente \n3) Registrarse como cliente \n4) salir" );
             option = sc.nextInt();
             switch (option){
                 case 1:
@@ -31,7 +31,7 @@ public class IUMenuPrincipal {
                         //Inicio sesión:
                         menuAdministrator.menuAdministrator();
                     } else {
-                        System.out.println("Contraseña incorrecta");
+                        System.out.println("Contraseña o correo incorrecto");
                     }
 
                     break;
