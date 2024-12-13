@@ -4,8 +4,8 @@ public class Administrator extends Users{
     //Attributes:
     private double salary;
 
-    public Administrator(String email, String nameUser, String password){
-        super(email, nameUser ,password);
+    public Administrator(String idUser, String email, String nameUser, String password){
+        super(idUser, email, nameUser ,password);
     }
 
     //Methods:

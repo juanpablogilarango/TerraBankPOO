@@ -37,13 +37,13 @@ public class IUAdministrator {
                     listCustomer(connection);
                     break;
                 case 6:
-                    option = 5;
+                    option = 6;
                     break;
                 default:
                     System.out.println("Ingrese una opcion valida");
 
             }
-        } while (option != 5);
+        } while (option != 6);
 
 
     }
@@ -171,7 +171,7 @@ public class IUAdministrator {
                 System.out.println("ID: " + id);
                 System.out.println("Tipo de tarjeta: " + typeCard);
                 System.out.println("Descripción: " + description);
-                System.out.println("Monto: " + amount);
+                System.out.println("Monto: " + String.format("%.2f", amount));
                 System.out.println("------");
             }
 

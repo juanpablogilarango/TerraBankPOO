@@ -65,21 +65,19 @@ public class IUMenuPrincipal {
             ResultSet rs = statement.executeQuery();
 
 
-            //Se debe de guardar en un objeto el admin...
             if(rs.next()){
-                System.out.println("Datos obtenidos del admin: ");
-                System.out.println("ID" + rs.getInt("idUser"));
-                System.out.println("Nombre" + rs.getString("nameUser"));
-                Administrator admin = new Administrator(rs.getString("emailUser"), rs.getString("nameUser"), rs.getString("passwordUser"));
+                Administrator admin = new Administrator(rs.getString("idUser"), rs.getString("emailUser"),
+                        rs.getString("nameUser"), rs.getString("passwordUser"));
                 return admin;
             }
 
 
         } catch (SQLException e){
             System.out.println("Error al iniciar sesión: " + e.getMessage());
-            e.printStackTrace();
         }
 
         return null;
     }
+
+
 }

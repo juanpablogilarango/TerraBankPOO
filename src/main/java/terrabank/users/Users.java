@@ -1,21 +1,21 @@
 package terrabank.users;
 
 public class Users {
-    private int idUser;
+    private String idUser;
         private String nameUser, lastNameUser, emailUser, birthdateUser, passwordUser;
 
-    public Users(String emailUser, String nameUser ,String passwordUser){
+    public Users(String idUser, String emailUser, String nameUser ,String passwordUser){
         this.emailUser = emailUser;
         this.passwordUser = passwordUser;
         this.nameUser = nameUser;
     }
 
 
-    public void setIdUser(int idUser){
+    public void setIdUser(String idUser){
         this.idUser = idUser;
     }
 
-    public int getIdUser(){
+    public String getIdUser(){
         return this.idUser;
     }
 

@@ -19,7 +19,6 @@ public class DatabaseConnection {
     public Connection connect(){
         try {
             connection = DriverManager.getConnection(url, username, password);
-            System.out.println("Conexión de la base de datos establecida");
         } catch (SQLException e) {
             System.out.println("Algo salió mal" + e.getMessage());
             e.printStackTrace();
