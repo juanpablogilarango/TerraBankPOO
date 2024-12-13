@@ -17,8 +17,8 @@ public class IUAdministrator {
 
         do {
             System.out.println("Ingrese una opción: \n1) Crear tarjeta de crédito \n2) Actualizar tarjeta de crédito \n" +
-                    "3) Eliminar tarjeta de crédito \n4) Listar tarjetas de crédito \n " +
-                    " 5) Ver Clientes \n6) Regresar al menú anterior");
+                    "3) Eliminar tarjeta de crédito \n4) Listar tarjetas de crédito" +
+                    "\n5) Ver Clientes \n6)Listar tarjetas de crédito adquiridas  \n7) Regresar al menú anterior");
             option = sc.nextInt();
             switch (option){
                 case 1:
@@ -37,13 +37,16 @@ public class IUAdministrator {
                     listCustomer(connection);
                     break;
                 case 6:
-                    option = 6;
+                    listAdquisitionsCards(connection);
+                    break;
+                case 7:
+                    option = 7;
                     break;
                 default:
                     System.out.println("Ingrese una opcion valida");
 
             }
-        } while (option != 6);
+        } while (option != 7);
 
 
     }
@@ -216,6 +219,28 @@ public class IUAdministrator {
 
         } catch (SQLException e) {
             System.out.println("Ha ocurrido un error" + e.getMessage());
+        }
+    }
+
+    public void listAdquisitionsCards(Connection connection){
+        System.out.println("Ver adquisiciones de créditos");
+        String sqlListAdquisitionsCards = "SELECT * FROM adquisitionCreditCard";
+        try(Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(sqlListAdquisitionsCards)
+        ) {
+
+            while (rs.next()) {
+                int id = rs.getInt("idAdquisition");
+                String date = rs.getString("date");
+                int idUser = rs.getInt("idUser");
+                int idCreditCard = rs.getInt("idCreditCard");
+                int numberCreditCard = rs.getInt("numberCreditCard");
+                System.out.println("id: " + id + "\nfecha: " + date + "\nid usuario: " + idUser + "\nid tarjeta crédito: "  + idCreditCard + "\nnumero tarjeta crédito: " + numberCreditCard);
+                System.out.println("----------------------------------------------");
+            }
+
+        } catch (SQLException e){
+            System.out.println("Ha ocurrido un error al solictar las adquisiciones de los clientes" + e.getMessage());
         }
     }
 
